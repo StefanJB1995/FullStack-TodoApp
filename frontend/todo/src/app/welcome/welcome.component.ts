@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { WelcomeDataService } from '../service/data/welcome-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-welcome',
@@ -10,10 +12,14 @@ export class WelcomeComponent implements OnInit {
 
   name = "";
   //ActivatedRoute
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute, private service:WelcomeDataService) { }
 
   ngOnInit() {
     this.name = this.route.snapshot.params['name'];
 
+  }
+
+  getWelcomeMessage() {
+    this.service.executeHelloWorldBeanService().subscribe();
   }
 }
