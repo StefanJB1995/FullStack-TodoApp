@@ -1,4 +1,4 @@
-package com.udemy.projects.todowebservice;
+package com.udemy.projects.todowebservice.helloworld;
 
 public class HelloWorldBean {
 
