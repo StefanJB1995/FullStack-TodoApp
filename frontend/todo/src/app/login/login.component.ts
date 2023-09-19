@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
+import { BasicdAuthenticationService } from '../service/basic-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
 
   //Use Dependency Injection to use Router
   //Use DI to use Auth Service
-  constructor(private router: Router, private auth:HardcodedAuthenticationService) { }
+  constructor(private router: Router, 
+    private auth:HardcodedAuthenticationService,
+    private basicAuthService: BasicdAuthenticationService) { }
 
   ngOnInit(): void {
 
@@ -30,6 +33,23 @@ export class LoginComponent implements OnInit {
     else {
       this.invalidLogin = true;
     }
+    
+  }
+
+  handleBasicAuthLogin() {
+    console.log(this.username);
+    this.basicAuthService.executAuthenticationService(this.username, this.password)
+    .subscribe(
+      data => {
+        console.log(data)
+        this.router.navigate(["welcome", this.username])
+        this.invalidLogin = false;
+      },
+      error => {
+        console.log(error);
+        this.invalidLogin = true;
+      }
+    )
     
   }
 
