@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -23,7 +24,7 @@ public class SpringSecurityConfigurationBasicAuth{
                     .authorizeHttpRequests(
                         auth -> 
                             auth
-                            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                            .requestMatchers(antMatcher(HttpMethod.OPTIONS, "/**")).permitAll() //CHANGED THIS TO antMatcher. Works now!
                             .anyRequest().authenticated()
                         )
                     .httpBasic(Customizer.withDefaults())
