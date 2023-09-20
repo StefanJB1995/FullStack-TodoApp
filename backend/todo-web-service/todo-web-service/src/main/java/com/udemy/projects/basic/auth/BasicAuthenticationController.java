@@ -1,4 +1,4 @@
-package com.udemy.projects.todowebservice.basic.auth;
+package com.udemy.projects.basic.auth;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

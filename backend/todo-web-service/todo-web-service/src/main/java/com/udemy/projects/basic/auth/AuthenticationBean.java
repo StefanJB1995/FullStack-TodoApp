@@ -1,4 +1,4 @@
-package com.udemy.projects.todowebservice.basic.auth;
+package com.udemy.projects.basic.auth;
 
 public class AuthenticationBean {
 

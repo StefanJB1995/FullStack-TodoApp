@@ -1,4 +1,8 @@
-package com.udemy.projects.todowebservice.basic.auth;
+package com.udemy.projects.basic.auth;
+//WE ARE NOT USING BASIC AUTH SO I COMMENTED THE RIGHT PACKAGE NAME
+
+//package com.udemy.projects.todowebservice.basic.auth;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
